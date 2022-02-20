@@ -1,15 +1,9 @@
-import { user$, user } from './subject';
+import { user$ as serviceUser$ } from './subject';
+
+const user$ = serviceUser$;
 
 user$.subscribe({
   next: (v) => console.log(`observerA: ${v.username}`),
   error: (e) => console.log(`observerC: ${e}`),
 });
 
-user$.subscribe({
-  next: (v) => console.log(`observerB: ${v.username}`),
-  error: (e) => console.log(`observerC: ${e}`),
-});
-
-user.next({
-  username:'Bryan Andrés'
-});
